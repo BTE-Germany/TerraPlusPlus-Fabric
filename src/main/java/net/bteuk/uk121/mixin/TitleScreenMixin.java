@@ -55,19 +55,23 @@ public class TitleScreenMixin extends Screen {
             RenderSystem.setShaderTexture(0, EDITION_TITLE_TEXTURE);
             drawTexture(matrices, j + 88, 67, 0.0F, 0.0F, 98, 14, 128, 16);
 
-            String string = "Minecraft " + SharedConstants.getGameVersion().getName();
+           // String string = "Minecraft " + SharedConstants.getGameVersion().getName();
 
-            string = string + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType());
+            String info1 = "BuildTheEarth.net";
+            String info2 = "BTE Modpack v3.0 1.18";
+
+            //string = string + ("release".equalsIgnoreCase(this.client.getVersionType()) ? "" : "/" + this.client.getVersionType());
 
 
-            if (this.client.isModded()) {
+           /* if (this.client.isModded()) {
                 string = string + I18n.translate("menu.modded", new Object[0]);
-            }
+            }*/
 
             int copyrightTextWidth = this.textRenderer.getWidth("Copyright Mojang AB. Do not distribute!");
             int copyrightTextX = this.width - copyrightTextWidth - 2;
 
-            drawStringWithShadow(matrices, this.textRenderer, string, 2, this.height - 10, 16777215 | l);
+            drawStringWithShadow(matrices, this.textRenderer, info1, 2, this.height - 20, 16777215 | l);
+            drawStringWithShadow(matrices, this.textRenderer, info2, 2, this.height - 10, 16777215 | l);
             drawStringWithShadow(matrices, this.textRenderer, "Copyright Mojang AB. Do not distribute!", copyrightTextX, this.height - 10, 16777215 | l);
 
             Iterator var12 = this.children().iterator();

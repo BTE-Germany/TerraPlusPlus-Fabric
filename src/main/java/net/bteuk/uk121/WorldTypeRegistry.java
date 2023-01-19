@@ -17,7 +17,7 @@ public class WorldTypeRegistry {
     public static HashMap<String, BiFunction<Long, Properties, GeneratorOptions>>  levelTypes= new HashMap<>();
     @Environment(EnvType.CLIENT)
     public  static <T extends CustomGeneratorType> void registerWorldType(String translationKey, Function<String, T> generatorSupplier) {
-        if (GeneratorType.VALUES.stream().noneMatch(value->value.getTranslationKey().toString().equalsIgnoreCase(translationKey))) {
+        if (GeneratorType.VALUES.stream().noneMatch(value->value.toString().equalsIgnoreCase(translationKey))) {
             GeneratorType.VALUES.add(generatorSupplier.apply(translationKey));
             log(Level.INFO, "Registered World Type: " + translationKey);
         }else {
