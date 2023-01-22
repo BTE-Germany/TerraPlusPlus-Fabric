@@ -8,6 +8,10 @@ Terra++ Fabric is a mod which generates the real world terrain and outlines in t
 
 - lidar is supported in the same way as in Terra++
 
+Together with Distant Horizons:
+
+![](https://media.discordapp.net/attachments/1028734575293251745/1066735153570914397/2023-01-22_16.00.02.png?width=1700&height=897)
+
 ## Commands
 /tpll latitude longitude [altitude]
 
