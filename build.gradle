@@ -1,6 +1,8 @@
 plugins {
 	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
+	id 'com.github.johnrengelman.shadow' version '7.1.2'
+	id 'java'
 }
 
 runClient {
@@ -16,8 +18,14 @@ group = project.maven_group
 
 dependencies {
 
-	implementation 'net.daporkchop.lib:common:0.5.7-SNAPSHOT'
-	include 'net.daporkchop.lib:common:0.5.7-SNAPSHOT'
+	// Terra++ dependencies
+	implementation "com.github.DaMatrix:commons-imaging:4c6c5dfe6401a884cb4cf53fb838c99e1dfb104c"
+	include "com.github.DaMatrix:commons-imaging:4c6c5dfe6401a884cb4cf53fb838c99e1dfb104c"
+
+	implementation("net.daporkchop.lib:binary:0.5.7-SNAPSHOT")  {
+		exclude group: "io.netty"
+	}
+	include 'net.daporkchop.lib:binary:0.5.7-SNAPSHOT'
 
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.1'
 	include 'com.fasterxml.jackson.core:jackson-databind:2.14.1'
@@ -28,8 +36,28 @@ dependencies {
 	implementation 'com.fasterxml.jackson.core:jackson-core:2.14.1'
 	include 'com.fasterxml.jackson.core:jackson-core:2.14.1'
 
+	implementation 'net.daporkchop.lib:unsafe:0.5.7-SNAPSHOT'
+	include 'net.daporkchop.lib:unsafe:0.5.7-SNAPSHOT'
+
+	implementation 'net.daporkchop.lib:common:0.5.7-SNAPSHOT'
+	include 'net.daporkchop.lib:common:0.5.7-SNAPSHOT'
+
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
+	include 'org.apache.commons:commons-lang3:3.12.0'
+
+	implementation 'com.google.guava:guava:31.0.1-jre'
+	include 'com.google.guava:guava:31.0.1-jre'
+
+	implementation 'commons-io:commons-io:2.11.0'
+	include 'commons-io:commons-io:2.11.0'
+
+	implementation 'io.netty:netty-buffer:4.1.72.Final'
+	include 'io.netty:netty-buffer:4.1.72.Final'
+
+	implementation 'lzma:lzma:0.0.1'
+	include 'lzma:lzma:0.0.1'
+
 	implementation 'com.github.SmylerMC:terraminusminus:5907790da3'
-	include 'com.fasterxml.jackson.core:jackson-core:2.14.1'
 	include 'com.github.SmylerMC:terraminusminus:5907790da3'
 
 

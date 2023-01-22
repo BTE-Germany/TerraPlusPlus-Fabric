@@ -109,16 +109,14 @@ public class EarthGenerator extends ChunkGenerator {
 
 
                     //Generates stone under all surfaces
+
                     for (int y = minY; y < Math.min(maxY, groundY+move); y++) {
-                        chunk.setBlockState(new BlockPos(x,groundY+move,z), Blocks.STONE.getDefaultState(), true);
+                        chunk.setBlockState(new BlockPos(x,y,z), Blocks.STONE.getDefaultState(), false);
                     }
-
-
 
                     //Genrates terrain with block states
                     if (groundY+move < maxY) {
                         if(state != null){
-
                             switch (state.getBlock().toString()) {
                                 case "minecraft:dirt_path":
                                     chunk.setBlockState(new BlockPos(x,groundY+move,z), Blocks.MOSS_BLOCK.getDefaultState(), false);
@@ -137,8 +135,8 @@ public class EarthGenerator extends ChunkGenerator {
                         } else {
                             chunk.setBlockState(new BlockPos(x,groundY+move,z), Blocks.GRASS_BLOCK.getDefaultState(), false);
                         }
-
                     }
+
                     for (int y = groundY+move + 1; y < Math.min(maxY, waterY+move); y++) chunk.setBlockState(new BlockPos(x,groundY+move,z), Blocks.WATER.getDefaultState(), false);
 
                 }
